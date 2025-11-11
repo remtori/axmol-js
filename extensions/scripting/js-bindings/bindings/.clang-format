@@ -1,0 +1,83 @@
+# Clang-format configuration for JavaScript bindings
+# Optimized for lambda-heavy code generation
+# Based on the main axmol style with lambda formatting improvements
+
+BasedOnStyle: Chromium
+
+# Allow double brackets such as std::vector<std::vector<int>>.
+Standard: Cpp11
+
+# Indent 4 spaces at a time.
+IndentWidth: 4
+
+# Keep lines under 120 columns long.
+ColumnLimit: 140
+
+SortIncludes: false
+
+# Always break before braces
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+  # Keeps extern "C" blocks unindented.
+  AfterExternBlock: false
+  # Fix lambda brace formatting
+  BeforeLambdaBody: true
+
+# Lambda body indentation - use Signature for better alignment
+LambdaBodyIndentation: Signature
+
+# Indent case labels.
+IndentCaseLabels: false
+
+# Left-align pointers and references
+PointerAlignment: Left
+
+# Improve function call and lambda formatting
+AlignOperands: DontAlign
+AlignConsecutiveAssignments: true
+
+# Control argument and parameter packing for better readability
+BinPackArguments: false
+BinPackParameters: false
+
+# Lambda formatting improvements
+AllowShortLambdasOnASingleLine: Inline
+
+# Additional formatting controls
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: Yes
+
+# Use 0 space negative offset for access modifiers
+AccessModifierOffset: -4
+
+# Allow short case labels on single line
+AllowShortCaseLabelsOnASingleLine: false
+
+# Useful for spacing out functions in classes
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 0
+
+# Indent nested PP directives.
+IndentPPDirectives: AfterHash
+
+# Include blocks style
+IncludeBlocks: Preserve
+UseTab: Never
+BreakConstructorInitializers: BeforeComma
+
+AlignConsecutiveMacros: AcrossEmptyLines

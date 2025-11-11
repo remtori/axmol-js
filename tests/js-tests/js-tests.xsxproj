@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<Project fullMode="0">
+  <assets>
+    <item path="project\proj.ios_mac\mac\LuaObjectCBridgeTest.mm" dflag="131076" />
+    <item path="project\proj.android\gradle\wrapper\gradle-wrapper.properties" dflag="131076" />
+    <item path="project\proj.android\gradle.properties" dflag="131076" />
+    <item path="project\proj.android\app\src\org\cocos2dx\lua_tests\AppActivity.java" dflag="131076" />
+    <item path="project\proj.ios_mac\ios\AppController.mm" dflag="131076" />
+    <item path="project\proj.ios_mac\ios\LuaObjectCBridgeTest.h" dflag="131076" />
+    <item path="project\proj.ios_mac\ios\AppController.h" dflag="131076" />
+    <item path="project\proj.ios_mac\mac\LuaObjectCBridgeTest.h" dflag="131076" />
+    <item path="project\proj.ios_mac\ios\LuaObjectCBridgeTest.mm" dflag="131076" />
+    <item path="project\proj.ios_mac\ios\RootViewController.h" dflag="131076" />
+    <item path="project\proj.ios_mac\ios\RootViewController.mm" dflag="131076" />
+    <item path="build\CMakeCache.txt" dflag="131076" />
+    <item path="build\CMakeFiles\3.22.2\VCTargetsPath.txt" dflag="131076" />
+    <item path="build\CMakeFiles\TargetDirectories.txt" dflag="131076" />
+    <item path="build\CMakeFiles\3.22.2\CompilerIdCXX\CMakeCXXCompilerId.cpp" dflag="131076" />
+    <item path="build\lua-tests.dir\Debug\lua-tests.vcxproj.FileListAbsolute.txt" dflag="131076" />
+    <item path="project\Classes\lua_assetsmanager_test_sample.cpp" dflag="131076" />
+    <item path="build\CMakeFiles\3.22.2\CompilerIdC\CMakeCCompilerId.c" dflag="131076" />
+    <item path="project\proj.android\app\src\com\cocos2dx\sample\LuaJavaBridgeTest\LuaJavaBridgeTest.java" dflag="131076" />
+    <item path="project\Classes\AppDelegate.cpp" dflag="131076" />
+    <item path="project\Classes\lua_test_bindings.cpp" dflag="131076" />
+    <item path="project\proj.android\app\jni\main.cpp" dflag="131076" />
+    <item path="project\CMakeLists.txt" dflag="131076" />
+    <item path="project\proj.android\app\res\values\strings.xml" dflag="131076" />
+    <item path="project\Classes\AppDelegate.h" dflag="131076" />
+    <item path="project\proj.android\app\AndroidManifest.xml" dflag="131076" />
+    <item path="project\Classes\lua_test_bindings.h" dflag="131076" />
+    <item path="project\Classes\lua_assetsmanager_test_sample.h" dflag="131076" />
+    <item path="project\proj.android\app\get_environment.sh" dflag="131076" />
+    <item path="res\spine\license.txt" dflag="131076" />
+    <item path="res\NavMesh\geomset.txt" dflag="131076" />
+    <item path="res\strings\LabelFNTUNICODELanguages.xml" dflag="131076" />
+    <item path="res\strings\LabelFNTMultiLineAlignmentUNICODE.xml" dflag="131076" />
+    <item path="res\Misc\resources-widehd\test3.txt" dflag="131076" />
+    <item path="res\Misc\resources-machd\test1.txt" dflag="131076" />
+    <item path="res\Misc\resources-wide\test5.txt" dflag="131076" />
+    <item path="res\Misc\resources-iphone\test6.txt" dflag="131076" />
+    <item path="res\Misc\resources-mac\test2.txt" dflag="131076" />
+    <item path="res\Test.html" dflag="131076" />
+    <item path="res\Misc\searchpath2\resources-ipad\file2.txt" dflag="131076" />
+    <item path="res\zip\10k.txt" dflag="131076" />
+    <item path="res\Misc\searchpath1\file1.txt" dflag="131076" />
+    <item path="res\Misc\resources-ipadhd\test1.txt" dflag="131076" />
+    <item path="project\proj.win32\resource.h" dflag="131076" />
+    <item path="project\proj.linux\main.cpp" dflag="131076" />
+    <item path="project\proj.win32\main.cpp" dflag="131076" />
+    <item path="res\animations\grossini.plist.xml" dflag="131076" />
+    <item path="res\audio\SoundEffectsFX009\README.txt" dflag="131076" />
+    <item path="res\fonts\emoji.txt" dflag="131076" />
+    <item path="project\proj.ios_mac\mac\main.cpp" dflag="131076" />
+    <item path="project\proj.win32\lua-tests.rc" dflag="131076" />
+    <item path="res\Misc\resources-ipad\test2.txt" dflag="131076" />
+    <item path="res\Misc\resources-hd\test4.txt" dflag="131076" />
+    <item path="project\proj.win32\main.h" dflag="131076" />
+  </assets>
+  <debug-options>
+    <start-program>build\bin\js-tests\Debug\js-tests.exe</start-program>
+    <start-working-dir>.\Content</start-working-dir>
+    <start-command></start-command>
+    <search-paths>
+      <item>src</item>
+    </search-paths>
+  </debug-options>
+  <project-home>.</project-home>
+  <ssheets />
+  <assets.ref />
+</Project>
