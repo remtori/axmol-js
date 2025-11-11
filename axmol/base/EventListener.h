@@ -109,6 +109,12 @@ public:
      */
     bool isEnabled() const { return _isEnabled; }
 
+    /** Gets the type of this listener
+     *  @note It's different from `EventType`, e.g. TouchEvent has two kinds of event listeners - EventListenerOneByOne,
+     * EventListenerAllAtOnce
+     */
+    Type getType() const { return _type; }
+
 protected:
     /** Sets paused state for the listener
      *  The paused state is only used for scene graph priority listeners.
@@ -129,12 +135,6 @@ protected:
 
     /** Checks whether the listener was registered by EventDispatcher */
     bool isRegistered() const { return _isRegistered; }
-
-    /** Gets the type of this listener
-     *  @note It's different from `EventType`, e.g. TouchEvent has two kinds of event listeners - EventListenerOneByOne,
-     * EventListenerAllAtOnce
-     */
-    Type getType() const { return _type; }
 
     /** Gets the listener ID of this listener
      *  When event is being dispatched, listener ID is used as key for searching listeners according to event type.

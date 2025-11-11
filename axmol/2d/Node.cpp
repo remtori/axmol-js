@@ -1634,7 +1634,7 @@ void Node::update(float fDelta)
     if (0 != _updateScriptHandler)
     {
         // only lua use
-        SchedulerScriptData data(_updateScriptHandler, fDelta);
+        SchedulerScriptData data(_updateScriptHandler, fDelta, this);
         ScriptEvent event(kScheduleEvent, &data);
         ScriptEngineManager::sendEventToLua(event);
     }

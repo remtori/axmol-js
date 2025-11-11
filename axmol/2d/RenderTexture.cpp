@@ -254,8 +254,9 @@ bool RenderTexture::initWithWidthAndHeight(int w,
         // retained
         setSprite(Sprite::createWithTexture(_colorTexture));
 
-        _sprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        _sprite->setPosition(Vec2(w, h) / 2);
+        // Disable this to make things compatible with cocos2d-x v3
+        // _sprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+        // _sprite->setPosition(Vec2(w, h) / 2);
 
         applySpriteFlippedY(_sprite);
 

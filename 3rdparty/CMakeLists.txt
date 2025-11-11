@@ -231,6 +231,13 @@ if(AX_ENABLE_EXT_LUA)
   endif()
 endif()
 
+if(AX_ENABLE_EXT_JS)
+  add_subdirectory(js/v8)
+  set_property(TARGET 3rdparty APPEND PROPERTY
+    AX_JS_DEPEND jsv8
+  )
+endif()
+
 if(AX_WITH_CURL AND NOT EMSCRIPTEN)
   ax_add_3rd(curl)
 endif()

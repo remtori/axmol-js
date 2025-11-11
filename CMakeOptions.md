@@ -38,6 +38,7 @@
   - AX_ENABLE_EXT_EFFEKSEER: the effekseer extension, default: `FALSE` 
   - AX_ENABLE_EXT_JSONDEFAULT: the UserDefault based on json, default: `FALSE`
   - AX_ENABLE_EXT_LUA: the lua extension, default: `TRUE`
+  - AX_ENABLE_EXT_JS: the js extension, default: `FALSE`
 - AX_WITH_XXX: usually user don't need care it
 - AX_RENDER_API: specify render api: gl, mtl, d3d, default: `auto`
 - AX_GLES_PROFILE: specify GLES profile version, only works when selected render api is `gl`, default: `300`, valid value `300`, `310`

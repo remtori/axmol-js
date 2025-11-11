@@ -58,6 +58,7 @@ enum ccScriptType
 {
     kScriptTypeNone = 0,
     kScriptTypeLua,
+    kScriptTypeJS,
 };
 
 /**

@@ -47,11 +47,13 @@ static void untrackRef(Object* ref);
 
 Object::Object()
     : _referenceCount(1)  // when the Object is created, the reference count of it is 1
-#if AX_ENABLE_SCRIPT_BINDING
+#if AX_ENABLE_SCRIPT_BINDING == 1
     , _luaID(0)
+#elif AX_ENABLE_SCRIPT_BINDING == 2
+    , _scriptObjectID(0)
 #endif
 {
-#if AX_ENABLE_SCRIPT_BINDING
+#if AX_ENABLE_SCRIPT_BINDING == 1
     static unsigned int uObjectCount = 0;
     _ID                              = ++uObjectCount;
 #endif
@@ -63,7 +65,7 @@ Object::Object()
 
 Object::~Object()
 {
-#if AX_ENABLE_SCRIPT_BINDING
+#if AX_ENABLE_SCRIPT_BINDING == 1
     ScriptEngineProtocol* pEngine = ScriptEngineManager::getInstance()->getScriptEngine();
     if (pEngine != nullptr && _luaID)
     {

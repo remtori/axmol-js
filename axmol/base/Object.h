@@ -161,12 +161,15 @@ protected:
 
     friend class AutoreleasePool;
 
-#if AX_ENABLE_SCRIPT_BINDING
+#if AX_ENABLE_SCRIPT_BINDING == 1
 public:
     /// object id, ScriptSupport need public _ID
     unsigned int _ID;
     /// Lua reference id
     int _luaID;
+#elif AX_ENABLE_SCRIPT_BINDING == 2
+public:
+    uintptr_t _scriptObjectID;
 #endif
 
     // Memory leak diagnostic data (only included when AX_OBJECT_LEAK_DETECTION is defined and its value isn't zero)

@@ -133,6 +133,10 @@ if(AX_ENABLE_EXT_LUA)
   add_subdirectory(scripting/lua-bindings)
 endif()
 
+if(AX_ENABLE_EXT_JS)
+  add_subdirectory(scripting/js-bindings)
+endif()
+
 if(AX_ENABLE_EXT_JSONDEFAULT)
   add_subdirectory(JSONDefault)
 endif()

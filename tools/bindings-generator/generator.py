@@ -1081,6 +1081,7 @@ class NativeClass(object):
         self.override_methods = {}
         self.has_constructor  = False
         self.namespace_name   = ""
+        self.source_file = cursor.location.file.name if cursor.location.file else "Unknown"
 
         registration_name = generator.get_class_or_rename_class(self.class_name)
         if generator.remove_prefix:
@@ -1344,6 +1345,7 @@ class NativeEnum(object):
         self.static_methods = {}
         self.generator = generator
         self._current_visibility = cindex.AccessSpecifier.PRIVATE
+        self.source_file = cursor.location.file.name if cursor.location.file else "Unknown"
         #for generate lua api doc
 
         registration_name = generator.get_class_or_rename_class(self.class_name)
