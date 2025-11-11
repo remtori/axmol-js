@@ -84,7 +84,7 @@ V8PP_IMPL object_registry::object_registry(v8::Isolate* isolate, type_info const
                     v8::Local<v8::Value> prototype;
                     if (newTarget->Get(context, engine->ext().prototype()).ToLocal(&prototype) && prototype->IsObject())
                     {
-                        wrapped->SetPrototype(context, prototype).Check();
+                        wrapped->SetPrototypeV2(context, prototype).Check();
                     }
                 }
 

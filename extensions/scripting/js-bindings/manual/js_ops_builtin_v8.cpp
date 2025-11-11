@@ -34,9 +34,9 @@ bool is_instance_of_error(v8::Isolate* isolate, v8::Local<v8::Value> value)
 
     v8::Local<v8::String> message = v8::String::Empty(isolate);
     v8::Local<v8::Value> errorPrototype =
-        v8::Exception::Error(message)->ToObject(context).ToLocalChecked()->GetPrototype();
+        v8::Exception::Error(message)->ToObject(context).ToLocalChecked()->GetPrototypeV2();
 
-    v8::Local<v8::Value> maybePrototype = value->ToObject(context).ToLocalChecked()->GetPrototype();
+    v8::Local<v8::Value> maybePrototype = value->ToObject(context).ToLocalChecked()->GetPrototypeV2();
     while (!maybePrototype.IsEmpty())
     {
         if (!maybePrototype->IsObject())
@@ -49,7 +49,7 @@ bool is_instance_of_error(v8::Isolate* isolate, v8::Local<v8::Value> value)
             return true;
         }
 
-        maybePrototype = maybePrototype.As<v8::Object>()->GetPrototype();
+        maybePrototype = maybePrototype.As<v8::Object>()->GetPrototypeV2();
     }
 
     return false;
@@ -111,23 +111,11 @@ void js_bind_ops_builtin_v8(v8pp::module& mod)
 #endif
     });
     mod.function("op_call_console", op_call_console);
-    mod.function("op_get_continuation_preserved_embedder_data", [](const v8::FunctionCallbackInfo<v8::Value>& args) {
+    mod.function("op_get_extras_binding_object", [](const v8::FunctionCallbackInfo<v8::Value>& args) {
         v8::Isolate* isolate = args.GetIsolate();
         v8::HandleScope scope(isolate);
         v8::Local<v8::Context> context = isolate->GetCurrentContext();
-        args.GetReturnValue().Set(context->GetContinuationPreservedEmbedderData());
-    });
-    mod.function("op_set_continuation_preserved_embedder_data", [](const v8::FunctionCallbackInfo<v8::Value>& args) {
-        v8::Isolate* isolate = args.GetIsolate();
-        v8::HandleScope scope(isolate);
-        v8::Local<v8::Context> context = isolate->GetCurrentContext();
-        if (args.Length() < 1)
-        {
-            v8pp::throw_type_error(isolate, "Invalid arguments");
-            return;
-        }
-
-        context->SetContinuationPreservedEmbedderData(args[0]);
+        args.GetReturnValue().Set(context->GetExtrasBindingObject());
     });
     mod.function("op_memory_usage", [](const v8::FunctionCallbackInfo<v8::Value>& args) {
         v8::Isolate* isolate = args.GetIsolate();
@@ -304,7 +292,7 @@ void js_bind_ops_builtin_v8(v8pp::module& mod)
 
         v8::Local<v8::Array> out = v8::Array::New(isolate, 2);
 
-        v8::ScriptOrigin origin(isolate, specifier, 0, 0, false, -1, {}, false, false, false, hostDefinedOptions);
+        v8::ScriptOrigin origin(specifier, 0, 0, false, -1, {}, false, false, false, hostDefinedOptions);
 
         v8::Local<v8::Value> null = v8::Null(isolate);
         v8::Local<v8::Script> script;
@@ -371,10 +359,10 @@ void js_bind_ops_builtin_v8(v8pp::module& mod)
         }
 
         v8::Local<v8::String> str = args[0]->ToString(isolate->GetCurrentContext()).ToLocalChecked();
-        const auto len            = str->Utf8Length(isolate);
+        const auto len            = str->Utf8LengthV2(isolate);
 
         char* data = new char[len];
-        str->WriteUtf8(isolate, data, len, nullptr, v8::String::NO_NULL_TERMINATION | v8::String::REPLACE_INVALID_UTF8);
+        str->WriteUtf8V2(isolate, data, len);
 
         auto backing_store = v8::ArrayBuffer::NewBackingStore(
             data, len, [](void* data, size_t length, void* deleter_data) { delete[] (reinterpret_cast<char*>(data)); },

@@ -46,8 +46,7 @@
         // op_leak_tracing_get_all,
         // op_leak_tracing_get,
         op_run_microtasks,
-        op_get_continuation_preserved_embedder_data,
-        op_set_continuation_preserved_embedder_data,
+        op_get_extras_binding_object,
         op_call_console,
         op_memory_usage,
 
@@ -80,6 +79,11 @@
         op_is_weak_map,
         op_is_weak_set,
     } = window.__bootstrap.ops;
+
+    const {
+        getContinuationPreservedEmbedderData,
+        setContinuationPreservedEmbedderData,
+    } = op_get_extras_binding_object();
 
     // core/infra collaborative code
     delete window.__infra;
@@ -346,7 +350,7 @@
     function propGetterOnly(getter) {
         return {
             get: getter,
-            set() {},
+            set() { },
             enumerable: true,
             configurable: true,
         };
@@ -398,8 +402,8 @@
         };
     }
 
-    const getAsyncContext = op_get_continuation_preserved_embedder_data;
-    const setAsyncContext = op_set_continuation_preserved_embedder_data;
+    const getAsyncContext = getContinuationPreservedEmbedderData;
+    const setAsyncContext = setContinuationPreservedEmbedderData;
 
     function scopeAsyncContext(ctx) {
         const old = getAsyncContext();

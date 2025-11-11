@@ -1,13 +1,9 @@
 
-set(lib_name v8)
+set(lib_name jsv8)
 set(target_name ${lib_name})
 project(${lib_name})
 
-if(WINDOWS)
-	add_library(${target_name} SHARED IMPORTED GLOBAL)
-else()
-	add_library(${target_name} STATIC IMPORTED GLOBAL)
-endif()
+add_library(${target_name} STATIC IMPORTED GLOBAL)
 
 set_target_properties(${target_name} PROPERTIES
 	INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/include"

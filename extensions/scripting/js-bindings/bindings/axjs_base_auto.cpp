@@ -1338,7 +1338,7 @@ static void js_register_ax_base_EventMouse(v8pp::module& mod)
 {
     v8::Isolate* isolate = mod.isolate();
     v8pp::class_<ax::EventMouse> class_EventMouse(isolate);
-    class_EventMouse.ctor([](ax::EventMouse::MouseEventType arg0) { return new ax::EventMouse(arg0); })
+    class_EventMouse.ctor([](ax::EventMouse::MouseEventType arg0) { return new ax::EventMouse(); })
         .template inherit<ax::Event>()
         .member_function("getMouseEventType", &ax::EventMouse::getMouseEventType)
         .member_function("setScrollData", &ax::EventMouse::setScrollData)

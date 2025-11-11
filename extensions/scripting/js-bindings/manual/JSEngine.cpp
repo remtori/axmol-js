@@ -204,7 +204,7 @@ void JSEngine::evalWithOrigin(std::string_view originStr, std::string_view codeS
     v8::Context::Scope contextScope(context);
     v8::TryCatch tryCatch(_isolate);
 
-    v8::ScriptOrigin origin(_isolate, v8pp::to_v8(_isolate, originStr));
+    v8::ScriptOrigin origin(v8pp::to_v8(_isolate, originStr));
     v8::Local<v8::String> source = v8pp::to_v8(_isolate, codeStr);
 
     v8::Local<v8::Script> script;
